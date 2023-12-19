@@ -76,6 +76,8 @@ const specificBooks = [
       }
     });
   }
+
+  
   
   function loadSpecificBooks(pageNumber, perPage) {
     const startIndex = (pageNumber - 1) * perPage;
@@ -125,6 +127,62 @@ const specificBooks = [
     });
   }
   
-  // Llama a loadSpecificBooks con el número de página inicial y la cantidad deseada de resultados por página
   loadSpecificBooks(1, 10);
+
+ 
+ 
+ 
+  function searchBooks() {
+    const searchInput = document.getElementById('searchInput').value;
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchInput)}&langRestrict=en`;
+  
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        displayResults(data.items);
+      })
+      .catch(error => {
+        console.error('Error fetching data from Google Books API', error);
+      });
+  }
+  
+  function displayResults(books) {
+    const bookContainer = document.getElementById('bookContainer');
+    bookContainer.innerHTML = '';
+  
+    if (books.length === 0) {
+      bookContainer.innerHTML = '<p>No results found</p>';
+      return;
+    }
+  
+    books.forEach(book => {
+      const card = document.createElement('div');
+      card.classList.add('col-md-4', 'mb-4');
+  
+      card.innerHTML = `
+        <div class="card2">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="${book.volumeInfo.imageLinks?.thumbnail}" class="img-fluid rounded-start" alt="Book Cover">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">${book.volumeInfo.title}</h5>
+                <p class="card-text">By: ${book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown'}</p>
+                <p class="card-text">${book.volumeInfo.description || 'No description available'}</p>
+                <a href="${book.volumeInfo.previewLink}" target="_blank" class="btn btn-primary">Read more</a>
+                </div>
+              </div>
+          </div>
+        </div>
+      `;
+  
+      bookContainer.appendChild(card);
+    });
+  }
   
