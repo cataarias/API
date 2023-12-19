@@ -1,0 +1,96 @@
+#cartas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  .btn-outline-success {
+    color: blueviolet;
+    border-color: blueviolet;
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #8a2be2;
+    border-color: blueviolet;
+  }
+  
+  .img-logo {
+    width: 150px;
+    
+  }
+
+  .navbar {
+    background-color: rgb(227, 204, 248);
+    height: 100px;
+  }
+  
+  .navbar-nav li {
+    display: inline-flex;
+    padding: 20px;
+    font-size: 16px;
+    margin: 0 10px;
+    padding-right: 50px;
+  }
+  
+
+  
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #dbb6fd;
+    padding: 16px;
+    margin: 10px;
+    text-align: start;
+    z-index: 0;
+  }
+
+  .card2 {
+    background-color: #ffffff;
+    border: 1px solid #dbb6fd;
+    padding: 16px;
+    margin: 10px;
+    text-align: start;
+    z-index: 0;
+  }
+  
+  .mifooter{
+    background-color: rgb(227, 204, 248);
+    text-align: center;
+    padding: 15px;
+    
+  }
+
+  .carousel-item {
+    
+    width: 1100%;
+    height: auto;
+    margin: 10px;
+    
+
+  }
+
+  .carousel-inner {
+    width: 98vw;
+    height: 450px;
+    margin: 10px;    
+  }
+
+  .container {
+    margin-top: 2%;
+  }
+
+  .text-container {
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 20px;
+    color: rgb(47, 47, 47);
+    text-align: left;
+  }
+
+ 
+  #navbarNav {
+    z-index: 1000;
+    width: 43vh;
+  }
